@@ -82,6 +82,7 @@ class EucaCloudPlugin(EC2CloudPlugin):
 
     def add_plugin_args(self, *args, **kwargs):
         context = self._config.context
+        EC2CloudPlugin.add_plugin_args(self)
         cloud = self._parser.add_argument_group(title='EC2 Options', description='EC2 Connection Information')
         cloud.add_argument('--ec2-endpoint', dest='ec2_endpoint', help='EC2 endpoint  to connect to',
                            action=conf_action(config=context.cloud))

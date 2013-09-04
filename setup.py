@@ -9,7 +9,8 @@ setup(
         ('/etc/aminator/plugins', 
          ['default_conf/aminatorplugins.cloud.euca.yml',
           'default_conf/aminatorplugins.blockdevice.virtio.yml',
-          'default_conf/aminatorplugins.finalizer.tagging_ebs_euca.yml']),
+          'default_conf/aminatorplugins.finalizer.tagging_ebs_euca.yml',
+          'default_conf/aminatorplugins.volume.virtio.yml',]),
     ],
 
     entry_points = {
@@ -17,10 +18,13 @@ setup(
            'euca = aminatorplugins.cloud.euca:EucaCloudPlugin',
        ],
        'aminator.plugins.blockdevice': [
-           'euca = aminatorplugins.blockdevice.virtio:VirtioBlockDevicePlugin',
+           'virtio = aminatorplugins.blockdevice.virtio:VirtioBlockDevicePlugin',
        ],
        'aminator.plugins.finalizer': [
-           'euca = aminatorplugins.finalizer.tagging_ebs_euca:TaggingEBSEucaFinalizerPlugin',
+           'tagging_ebs_euca = aminatorplugins.finalizer.tagging_ebs_euca:TaggingEBSEucaFinalizerPlugin',
+       ],
+        'aminator.plugins.volume': [
+           'virtio = aminatorplugins.volume.virtio:VirtioVolumePlugin',
        ],
     },
 

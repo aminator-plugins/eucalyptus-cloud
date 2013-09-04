@@ -43,13 +43,13 @@ class TaggingEBSEucaFinalizerPlugin(BaseFinalizerPlugin):
         context = self._config.context
         tagging = self._parser.add_argument_group(title='AMI Tagging and Naming',
                                                   description='Tagging and naming options for the resultant AMI')
-        #tagging.add_argument('-n', '--name', dest='name', action=conf_action(context.ami),
-        #                     help='name of resultant AMI (default package_name-version-release-arch-yyyymmddHHMM-ebs')
-        #tagging.add_argument('-s', '--suffix', dest='suffix', action=conf_action(context.ami),
-        #                     help='suffix of ami name, (default yyyymmddHHMM)')
-        #creator_help = 'The user who is aminating. The resultant AMI will receive a creator tag w/ this user'
-        #tagging.add_argument('-c', '--creator', dest='creator', action=conf_action(context.ami),
-        #                     help=creator_help)
+        tagging.add_argument('-n', '--name', dest='name', action=conf_action(context.ami),
+                             help='name of resultant AMI (default package_name-version-release-arch-yyyymmddHHMM-ebs')
+        tagging.add_argument('-s', '--suffix', dest='suffix', action=conf_action(context.ami),
+                             help='suffix of ami name, (default yyyymmddHHMM)')
+        creator_help = 'The user who is aminating. The resultant AMI will receive a creator tag w/ this user'
+        tagging.add_argument('-c', '--creator', dest='creator', action=conf_action(context.ami),
+                             help=creator_help)
 
     def _set_metadata(self):
         context = self._config.context
