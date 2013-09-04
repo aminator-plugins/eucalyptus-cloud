@@ -1,7 +1,7 @@
 Eucalyptus Cloud Plugin for NetflixOSS Aminator
 ===========================================
 
-This Aminator plugin allows you to provision an EMIs in a 
+This Aminator plugin allows you to provision an EMI in a 
 `Eucalyptus <http://www.eucalyptus.com>`__ cloud. 
 
 Examples
