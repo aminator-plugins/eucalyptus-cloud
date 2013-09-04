@@ -1,24 +1,39 @@
 from setuptools import setup, find_packages
 setup(
-    name = "TEMPLATE",
-    version = "0.1",
+    name = "script-provisioner",
+    version = "0.1.0",
     packages = find_packages(),
     namespace_packages = ( 'aminatorplugins', ),
 
     data_files = [
-        ('/etc/aminator/plugins', ['default_conf/aminatorplugins.TYPE.my_plugin.yml']),
+        ('/etc/aminator/plugins', ['default_conf/aminatorplugins.cloud.euca.yml']),
     ],
 
     entry_points = {
-       'aminator.plugins.TYPE': [
-           'my_plugin = aminatorplugins.TYPE.my_plugin:MyPluginClass',
+       'aminator.plugins.cloud': [
+           'euca = aminatorplugins.cloud.euca:EucaCloudPlugin',
        ],
     },
 
     # metadata for upload to PyPI
-    author = "AUTHOR",
-    author_email = "EMAIL",
-    description = "DESCRIPTION",
-    license = "Apache 2.0",
-    keywords = "aminator plugin",
+    author = "Vic Iglesias",
+    author_email='viglesiasce@gmail.com',
+    url='https://github.com/aminator-plugins/eucalyptus',
+    description = "Eucalyptus Cloud Plugin for Netflix's Aminator",
+    long_description=open('README.rst').read(),
+    license=open("LICENSE.txt").read(),
+    keywords = "aminator plugin eucalyptus",
+    classifiers=(
+        'Development Status :: 4 - Beta',
+        'Environment :: Console',
+        'Intended Audience :: Developers',
+        'Intended Audience :: Information Technology',
+        'Intended Audience :: System Administrators',
+        'License :: OSI Approved :: Apache Software License',
+        'Natural Language :: English',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: System :: Installation/Setup',
+        'Topic :: Utilities',
+    )
+
 )
