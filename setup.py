@@ -1,17 +1,26 @@
 from setuptools import setup, find_packages
 setup(
-    name = "script-provisioner",
+    name = "eucalyptus-cloud",
     version = "0.1.0",
     packages = find_packages(),
     namespace_packages = ( 'aminatorplugins', ),
 
     data_files = [
-        ('/etc/aminator/plugins', ['default_conf/aminatorplugins.cloud.euca.yml']),
+        ('/etc/aminator/plugins', 
+         ['default_conf/aminatorplugins.cloud.euca.yml',
+          'default_conf/aminatorplugins.blockdevice.virtio.yml',
+          'default_conf/aminatorplugins.finalizer.tagging_ebs_euca.yml']),
     ],
 
     entry_points = {
        'aminator.plugins.cloud': [
            'euca = aminatorplugins.cloud.euca:EucaCloudPlugin',
+       ],
+       'aminator.plugins.blockdevice': [
+           'euca = aminatorplugins.blockdevice.virtio:VirtioBlockDevicePlugin',
+       ],
+       'aminator.plugins.finalizer': [
+           'euca = aminatorplugins.finalizer.tagging_ebs_euca:TaggingEBSEucaFinalizerPlugin',
        ],
     },
 
